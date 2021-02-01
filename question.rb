@@ -1,9 +1,12 @@
 class Questions
-  attr_accessor :num1 :num2
+  attr_accessor :num1, :num2
 
-  def self.initialize(num1, num2)
-    num1 = rand(20)
-    num2 = rand(20)
+  def self.num1
+    @num1 = rand(20)
+  end
+
+  def self.num2
+    @num2 = rand(20)
   end
 
   def self.check (user_input)

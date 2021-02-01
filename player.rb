@@ -1,13 +1,13 @@
 class Player
-  attr_accessor :player :life
+  attr_accessor :player, :lives
 
   def initialize(name)
     @player = player
-    @life = 3
+    @lives = 3
   end
 
   def wrong
-    @life -= 1
+    @lives -= 1
     puts "Seriously? No!"
   end
 
@@ -16,6 +16,6 @@ class Player
   end
 
   def gameover
-    @life == 0
+    @lives == 0
   end
 end

@@ -1,44 +1,44 @@
 require_relative 'player'
-require_relative 'turn'
+require_relative 'question'
 
 Player1 = Player.new('Player 1')
 Player2 = Player.new('Player 2')
 
 loop do
 
-  if Player1.gameover
-    break puts "#{Player2} wins with a score of #{Player2.life}/3"
+  puts "Player 1: What does #{Questions.num1} plus #{Questions.num2} equal?"
+  
+  response = gets.chomp.to_i
+  
+  if Questions.check(response)
+    Player1.right
+  else
+    Player1.wrong
   end
 
-  def turn(Player1)
-    puts "Player 1: What does #{Question.num1} plus #{Question.num2} equal?"
-  
-    response = gets.chomp.to_i
-  
-    if Question.check(response)
-      player.right
-    else
-      player.wrong
-    end
+  if Player1.gameover
+    break puts "Player 2 wins with a score of #{Player2.lives}/3"
+  end
 
+  puts "P1 #{Player1.lives}/3 vs P2 #{Player2.lives}/3"
+  puts " ----- NEW TURN -----"
+
+  puts "Player 2: What does #{Questions.num1} plus #{Questions.num2} equal?"
+  
+  response = gets.chomp.to_i
+  
+  if Questions.check(response)
+    Player2.right
+  else
+    Player2.wrong
   end
 
   if Player2.gameover
-    break puts "#{Player1} wins with a score of #{Player1.life}/3"
+    break puts "Player1 wins with a score of #{Player1.lives}/3"
   end 
 
-  def turn(Player2)
-    puts "Player 2: What does #{Question.num1} plus #{Question.num2} equal?"
-  
-    response = gets.chomp.to_i
-  
-    if Question.check(response)
-      player.right
-    else
-      player.wrong
-    end
-
-  end
+  puts "P1 #{Player1.lives}/3 vs P2 #{Player2.lives}/3"
+  puts " ----- NEW TURN -----"
   
 end  
 
