@@ -6,11 +6,13 @@ Player2 = Player.new('Player 2')
 
 loop do
 
-  puts "Player 1: What does #{Questions.num1} plus #{Questions.num2} equal?"
+  question = Questions.new
+
+  puts "Player 1: What does #{question.num1} plus #{question.num2} equal?"
   
   response = gets.chomp.to_i
   
-  if Questions.check(response)
+  if question.check(response)
     Player1.right
   else
     Player1.wrong
@@ -20,14 +22,16 @@ loop do
     break puts "Player 2 wins with a score of #{Player2.lives}/3"
   end
 
+  question = Questions.new
+
   puts "P1 #{Player1.lives}/3 vs P2 #{Player2.lives}/3"
   puts " ----- NEW TURN -----"
 
-  puts "Player 2: What does #{Questions.num1} plus #{Questions.num2} equal?"
+  puts "Player 2: What does #{question.num1} plus #{question.num2} equal?"
   
   response = gets.chomp.to_i
   
-  if Questions.check(response)
+  if question.check(response)
     Player2.right
   else
     Player2.wrong
